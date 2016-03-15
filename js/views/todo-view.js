@@ -20,6 +20,7 @@ var app = app || {};
 			'click .toggle': 'toggleCompleted',
 			'dblclick label': 'edit',
 			'click .edit-btn': 'edit',
+			'click .priority-btn': 'togglePriority',
 			'click .destroy': 'clear',
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
@@ -64,6 +65,11 @@ var app = app || {};
 			return this.model.get('completed') ?
 				app.TodoFilter === 'active' :
 				app.TodoFilter === 'completed';
+		},
+
+		//toggle priority
+		togglePriority: function () {
+			this.model.togglePriority();
 		},
 
 		// Toggle the `"completed"` state of the model.
